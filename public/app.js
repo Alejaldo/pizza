@@ -18,12 +18,19 @@ function add_to_cart(id)
         window.localStorage.setItem(key, x);
 
         update_orders();
+        update_orders_button()
 }
 
 function update_orders()
 {
         var orders = get_orders();
         $('#orders_epta').val(orders); 
+}
+
+function update_orders_button()
+{
+        var info = 'Cart (' + total_products() + ')';
+        $('#button4ik').val(info);
 }
 
 function total_products()
