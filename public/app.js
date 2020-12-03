@@ -37,3 +37,21 @@ function total_products()
 
         return total;
 }
+
+function orders()
+{
+        var orders = '';
+
+        for(var i = 0; i < window.localStorage.length; i++)
+        {
+                var x = window.localStorage.key(i);
+                var y = window.localStorage.getItem(x);
+
+                if(x.indexOf('product_') == 0)
+                {
+                        orders = orders + x + '=' + y + ',';
+                }
+        }
+
+        return orders;
+}
