@@ -17,7 +17,13 @@ function add_to_cart(id)
         x = x*1 + 1;
         window.localStorage.setItem(key, x);
 
-        alert('Items in your cart: ' + total_products());
+        update_orders();
+}
+
+function update_orders()
+{
+        var orders = get_orders();
+        $('#orders_epta').val(orders); 
 }
 
 function total_products()
@@ -38,7 +44,7 @@ function total_products()
         return total;
 }
 
-function orders()
+function get_orders()
 {
         var orders = '';
 
