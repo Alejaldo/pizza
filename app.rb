@@ -19,8 +19,8 @@ get '/about' do
 end
 
 post '/cart' do
-	new_orders = params[:orders]
-	@order_var = parse_orders new_orders
+	@new_orders = params[:orders]
+	@order_var = parse_orders @new_orders
 
 	@order_var.each do |item|
 		item[0] = Product.find(item[0])
