@@ -40,5 +40,5 @@ end
 post '/cart' do
 	new_orders = params[:orders]
 	@order_var = parse_orders new_orders
-	erb "Oba oba look at #{@order_var}"
+	erb :cart
 end
