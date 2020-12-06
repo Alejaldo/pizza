@@ -10,6 +10,10 @@ class Product < ActiveRecord::Base
 end
 
 class Client < ActiveRecord::Base
+    validates :scope, presence: true
+    validates :name, presence: true
+    validates :phone, presence: true
+    validates :address, presence: true
 end
 
 get '/' do
@@ -34,6 +38,13 @@ end
 
 post '/clients' do
     @client_order = Client.new params[:client]
+
+    if @client_order.save
+        erb :clients
+    else
+        @error = @client_order.errors.full_messages.first
+        erb "Something is going wrong ..."
+    end
 end
 
 def parse_orders orders_line
