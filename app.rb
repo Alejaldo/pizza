@@ -9,6 +9,9 @@ set :database, {adapter: "sqlite3", database: "pizza.db"}
 class Product < ActiveRecord::Base
 end
 
+class Client < ActiveRecord::Base
+end
+
 get '/' do
 	@products = Product.all
 	erb :index			
@@ -27,6 +30,10 @@ post '/cart' do
 	end
 
 	erb :cart
+end
+
+post '/clients' do
+    @client_order = Client.new params[:client]
 end
 
 def parse_orders orders_line
