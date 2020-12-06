@@ -31,7 +31,11 @@ post '/cart' do
 
 	@order_var.each do |item|
 		item[0] = Product.find(item[0])
-	end
+    end
+    
+    if @order_var.length == 0
+        return erb :empty_cart
+    end
 
 	erb :cart
 end
@@ -45,6 +49,15 @@ post '/clients' do
         @error = @client_order.errors.full_messages.first
         erb "Something is going wrong ..."
     end
+end
+
+get '/list' do
+    @list = Client.all
+    erb :list
+end
+
+get '/contacts' do
+    "Herengracht 597, 1017 CE Amsterdam, Netherlands"
 end
 
 def parse_orders orders_line

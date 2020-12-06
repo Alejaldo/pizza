@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Scope</th>
+      <th scope="col">Name of Client</th>
+      <th scope="col">Phone of Client</th>
+      <th scope="col">Address of Client</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+
+    <% @list.each_with_index do |item, index| %>
+    
+    <tr>
+      <th scope="row"><%= index+1 %></th>
+      <td><%= item.scope %></td>
+      <td><%= item.name %></td>
+      <td><%= item.phone %></td>
+      <td><%= item.address %></td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
