@@ -51,9 +51,21 @@ post '/clients' do
     end
 end
 
-get '/list' do
-    @list = Client.all
-    erb :list
+get '/admin' do
+    erb :admin
+end
+
+post '/admin' do
+    @login = params[:login]
+	@pas = params[:password]
+
+    if @login == 'admin' && @pas == 'obana'
+        @list = Client.all
+        erb :list
+    else
+        @warning = '<p>Wrong login or password!</p>'
+        erb :admin
+    end
 end
 
 get '/contacts' do
