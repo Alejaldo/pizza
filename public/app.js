@@ -68,3 +68,15 @@ function get_orders()
 
         return orders;
 }
+
+function cancel_order() 
+{
+        window.localStorage.clear();
+
+        update_orders();
+        update_orders_button();
+
+        $('#cart').text('Ok, your cart is fully empty now!');
+
+        return false;
+}
