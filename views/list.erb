@@ -13,7 +13,7 @@
   
   <tbody>
 
-    <% @list.each_with_index do |item, index| %>
+    <% @list.reverse.each_with_index do |item, index| %>
     
     <tr>
       <th scope="row"><%= index+1 %></th>
